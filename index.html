@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager</title>
+<link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+<div class="heading">
+  <h2 class="title">Task Manager </h2>
+   
+   <span id="theme-toggle">
+  
+  </span>
+  
+</div>
+
+ <div class="tabs">
+  <button onclick="showTab('addTab')">Add Task</button>
+  <button onclick="showTab('viewTab')">View Tasks</button>
+</div>
+
+<div class="main">
+<!-- ADD TASK TAB -->
+ <div id="addTab" class="tab">
+
+  <h2>Create Task</h2>
+
+  <input type="text" id="taskTitle" placeholder="Enter task name">
+
+  <input type="datetime-local" id="taskDeadline" placeholder="Time deadline">
+  <br>
+  <button id="addtaskbtn" onclick="addTask()">Add Task</button>
+
+</div>
+
+
+<!-- VIEW TASK TAB -->
+<div id="viewTab" class="tab">
+
+  <h2>Your Tasks</h2>
+
+  <div id="taskContainer"></div>
+
+</div>
+</div>
+<script>
+  
+  function showTab(tabId){
+
+  const tabs = document.querySelectorAll(".tab")
+
+  tabs.forEach(tab => {
+    tab.style.display = "none"
+  });
+
+  document.getElementById(tabId).style.display = "block"
+
+};
+
+window.onload = function(){
+  showTab("addTab")
+};
+
+</script>
+<script src="app.js"></script>
+
+</body>
+</html>
